@@ -124,6 +124,18 @@ public:
         return false;
     }
     
+    void check_win() {
+        int count = 0;
+        for(int i=0; i<8; ++i)
+            for(int j=0; j<8; ++j) {
+                if(b[i][j] == 'b') count++;
+                if(b[i][j] == 'w') count--;
+            }
+        if(count > 0) std::cout << "You win!" << std::endl;
+        if(count == 0) std::cout << "Drew!" << std::endl;
+        if(count < 0) std::cout << "You lose!" << std::endl;
+    }
+    
     int get_count() {
         return count;
     }

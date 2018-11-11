@@ -17,7 +17,7 @@ void game(Board &board) {
     int count = board.get_count();
     if(count % 2 == 0) {
         if(board.check_b() == 0) {
-            cout << "You lose" << endl;
+            board.check_win();
             return;
         }
         cout << "Please choose a position for black(A1 to H8)" << endl;
@@ -36,7 +36,10 @@ void game(Board &board) {
         board.show();
         game(board);
     } else {
-        if(!board.check_w()) return;
+        if(!board.check_w()) {
+            board.check_win();
+            return;
+        }
         board.show();
         game(board);
     }
